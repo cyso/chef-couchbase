@@ -44,14 +44,25 @@ class Chef
       end
 
       def create_params
-        {
-          "authType" => "sasl",
-          "saslPassword" => "",
-          "bucketType" => new_api_type,
-          "name" => new_resource.bucket,
-          "ramQuotaMB" => new_memory_quota_mb,
-          "replicaNumber" => new_resource.replicas || 0,
-        }
+        unless new_resource.port
+          {
+            "authType" => "sasl",
+            "saslPassword" => "",
+            "bucketType" => new_api_type,
+            "name" => new_resource.bucket,
+            "ramQuotaMB" => new_memory_quota_mb,
+            "replicaNumber" => new_resource.replicas || 0,
+          }
+        else
+          {
+            "authType" => "none",
+            "proxyPort" => new_resource.port,
+            "bucketType" => new_api_type,
+            "name" => new_resource.bucket,
+            "ramQuotaMB" => new_memory_quota_mb,
+            "replicaNumber" => new_resource.replicas || 0,
+          }
+        end
       end
 
       def new_api_type
