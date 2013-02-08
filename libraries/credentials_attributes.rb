@@ -7,5 +7,9 @@ module Couchbase
     def password(value=nil)
       set_or_return :password, value, :kind_of => String
     end
+
+    def host(value="localhost")
+      set_or_return :host, value, :kind_of => String
+    end
   end
 end
