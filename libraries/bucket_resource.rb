@@ -31,6 +31,8 @@ class Chef
         "must be a non-negative integer" => lambda { |port| port > -1 },
       }
 
+	  attribute :flush_enabled, :kind_of => [TrueClass, FalseClass], :default => false
+
       def initialize(*)
         super
         @action = :create
