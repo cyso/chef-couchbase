@@ -27,9 +27,9 @@ class Chef
         "must be either couchbase or memcached" => lambda { |type| %w(couchbase memcached).include? type },
       }
 
-	  attribute :port, :kind_of => Integer, :default => nil, :callbacks => {
-		  "must be a non-negative integer" => lambda { |port| port > -1 },
-	  }
+      attribute :port, :kind_of => Integer, :default => nil, :callbacks => {
+        "must be a non-negative integer" => lambda { |port| port > -1 },
+      }
 
       def initialize(*)
         super

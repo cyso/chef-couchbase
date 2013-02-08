@@ -51,7 +51,7 @@ class Chef
             "bucketType" => new_api_type,
             "name" => new_resource.bucket,
             "ramQuotaMB" => new_memory_quota_mb,
-            "replicaNumber" => new_resource.replicas || 0,
+            "replicaNumber" => new_resource.replicas || 0
           }
         else
           {
@@ -59,8 +59,7 @@ class Chef
             "proxyPort" => new_resource.port,
             "bucketType" => new_api_type,
             "name" => new_resource.bucket,
-            "ramQuotaMB" => new_memory_quota_mb,
-            "replicaNumber" => new_resource.replicas || 0,
+            "ramQuotaMB" => new_memory_quota_mb
           }
         end
       end
